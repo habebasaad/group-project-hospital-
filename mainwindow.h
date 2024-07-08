@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "qlabel.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +18,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pushButtonLogin_clicked();
+
+    void on_PushbuttonRegister_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QLabel *imageLabel;
 };
 #endif // MAINWINDOW_H
