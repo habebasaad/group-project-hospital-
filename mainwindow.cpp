@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPixmap>
+#include "registering.h"
+#include "users.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     int h = ui->labelimagelogin->height();
     ui->labelimagelogin->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
     ui->labelimagelogin->setVisible(true);
+    ui->error->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -24,12 +27,33 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonLogin_clicked()
 {
+    for (int i=0;i < usernames.size() ;i++)
+    {
+        if (usernames[i]==ui->lineEditUsername->text() && passwords[i]==ui->lineEditPassword->text())
+        {
+            if (roles[i]=="staff")
+            {
+                hide();
+                //open staff management
 
+            }
+            else if (roles[i]=="patient")
+            {
+                hide();
+                //open patient management
+            }
+
+            return;
+        }
+    }
+    ui->error->setVisible(true);
 }
 
 
 void MainWindow::on_PushbuttonRegister_clicked()
 {
-
+    hide();
+    registering* reg = new registering(this);
+    reg->show();
 }
 
