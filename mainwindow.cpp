@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "patientmanagmentwindow.h"
 #include "ui_mainwindow.h"
 #include <QPixmap>
 #include "registering.h"
@@ -39,10 +40,16 @@ void MainWindow::on_pushButtonLogin_clicked()
             }
             else if (roles[i]=="patient")
             {
-                hide();
-                //open patient management
-            }
+                // Open patient management window
+                hide(); // Hide the login window
 
+                // Create and show PatientManagmentWindow
+                PatientManagmentWindow* patientWindow = new PatientManagmentWindow(this);
+                patientWindow->setUsername(ui->lineEditUsername->text());
+                patientWindow->show();
+
+                return;
+            }
             return;
         }
     }

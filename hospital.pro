@@ -9,19 +9,34 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bookappointmentwindow.cpp \
+    cancelappointmentwindow.cpp \
+    chat.cpp \
     main.cpp \
     mainwindow.cpp \
+    patientmanagmentwindow.cpp \
     registering.cpp \
+    rescheduleappointmentwindow.cpp \
     users.cpp
 
 HEADERS += \
+    bookappointmentwindow.h \
+    cancelappointmentwindow.h \
+    chat.h \
     mainwindow.h \
+    patientmanagmentwindow.h \
     registering.h \
+    rescheduleappointmentwindow.h \
     users.h
 
 FORMS += \
+    bookappointmentwindow.ui \
+    cancelappointmentwindow.ui \
+    chat.ui \
     mainwindow.ui \
-    registering.ui
+    patientmanagmentwindow.ui \
+    registering.ui \
+    rescheduleappointmentwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
