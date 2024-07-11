@@ -16,6 +16,7 @@ chat::~chat()
 void chat::on_pushButtonsubmit_clicked()
 {
     ui->plainTextEdit_Chat->setPlainText("");
-    ui->labelafterpresssubmit->setText("Your message was sent to the Admin. Expect a call very soon");
+    ui->labelsubmitclicked->setText("<font color='blue'>Your message is sent to the Admin. Expect a call very soon</font>");
+
 }
 

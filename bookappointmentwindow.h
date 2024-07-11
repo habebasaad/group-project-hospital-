@@ -1,6 +1,7 @@
 #ifndef BOOKAPPOINTMENTWINDOW_H
 #define BOOKAPPOINTMENTWINDOW_H
 
+#include "qlistwidget.h"
 #include <QDialog>
 
 namespace Ui {
@@ -28,8 +29,16 @@ private slots:
 
     void on_radioButton_Dermatology_clicked();
 
+    void on_slotsListView_itemClicked(QListWidgetItem *item);
+
+    //void on_pushButtonSubmit_clicked(bool checked);
+
+   // void on_pushButtonSubmit_clicked();
+
+
 private:
     Ui::BookAppointmentWindow *ui;
+    //bool submitClicked = false; // Add this flag
 };
 
 #endif // BOOKAPPOINTMENTWINDOW_H

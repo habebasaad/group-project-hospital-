@@ -31,7 +31,7 @@ void registering::on_register_2_clicked()
     QString name= ui->nameedit->text();
     for (int i=0;i<patients.size();i++)
     {
-        if (name==patients[i].username)
+        if (name==patients[i].name)
             ui->errorname->setVisible(true);
     }
     for (int i=0;i<admins.size();i++)

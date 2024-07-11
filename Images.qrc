@@ -3,4 +3,7 @@
         <file>imageloginpage.jpg</file>
         <file>Imagepatientwindow</file>
     </qresource>
+    <qresource prefix="/Medical record file">
+        <file>medical record.txt</file>
+    </qresource>
 </RCC>

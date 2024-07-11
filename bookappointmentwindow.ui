@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>326</height>
+    <height>349</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -111,34 +111,6 @@ font: 12pt &quot;Segoe UI&quot;;</string>
     <string>Available slots and Doctors</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_choice_of_slot">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>280</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_Write_the_slot">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>280</y>
-     <width>261</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-font: 11pt &quot;Segoe UI&quot;;
-</string>
-   </property>
-   <property name="text">
-    <string>Write the slot you want to book</string>
-   </property>
-  </widget>
   <widget class="QListWidget" name="slotsListView">
    <property name="geometry">
     <rect>
@@ -147,6 +119,19 @@ font: 11pt &quot;Segoe UI&quot;;
      <width>331</width>
      <height>71</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSubmit">
+   <property name="geometry">
+    <rect>
+     <x>259</x>
+     <y>277</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Submit</string>
    </property>
   </widget>
  </widget>

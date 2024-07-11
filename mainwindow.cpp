@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonLogin_clicked()
 {
-    for (int i=0;i < patients.size() ;i++)
+    /*for (int i=0;i < patients.size() ;i++)
     {
         if (patients[i].username==ui->lineEditUsername->text() && patients[i].pass==ui->lineEditPassword->text())
         {
@@ -47,23 +47,30 @@ void MainWindow::on_pushButtonLogin_clicked()
                 return;
 
         }
+    }*/
+    for (int i = 0; i < patients.size(); ++i) {
+        if (patients[i].name == ui->lineEditUsername->text() && patients[i].pass == ui->lineEditPassword->text()) {
+
+            hide();
+            PatientManagmentWindow* patientWindow = new PatientManagmentWindow(this);
+            patientWindow->setPatient(patients[i]);
+            patientWindow->show();
+
+            return;
+        }
     }
+
     for (int i=0;i < admins.size() ;i++)
     {
         if (admins[i].username==ui->lineEditUsername->text() && admins[i].pass==ui->lineEditPassword->text())
         {
-
-            // Open patient management window
-            hide(); // Hide the login window
-
-            // Create and show PatientManagmentWindow
+            hide();
             adminwindow* ad=new adminwindow(this,admins[i]);
             ad->show();
             return;
 
         }
     }
-    //for loop should be added for the doctor and the nurse also after their classes has finished
     ui->error->setVisible(true);
 }
 

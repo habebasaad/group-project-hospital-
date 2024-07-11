@@ -13,7 +13,7 @@ adminwindow::adminwindow(QWidget *parent,admin ad)
     ui->patbox->setVisible(false);
     ui->staffbox->setVisible(false);
     for (int i=0;i<patients.size();i++)
-        ui->patbox->addItem(patients[i].username);
+        ui->patbox->addItem(patients[i].name);
     /////add items for staff for docors and nurses
 }
 
@@ -43,7 +43,7 @@ void adminwindow::on_submit_clicked()
     }
     if (ui->patbox->isVisible()){
         for (int i=0;i<patients.size();i++)
-            if (patients[i].username==ui->patbox->currentText())
+            if (patients[i].name==ui->patbox->currentText())
             {
                 hide();
                 PatientManagmentWindow* win=new PatientManagmentWindow(this);

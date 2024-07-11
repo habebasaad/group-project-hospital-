@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>260</y>
+     <y>257</y>
      <width>80</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -29,19 +29,19 @@
   <widget class="QPlainTextEdit" name="plainTextEdit_Chat">
    <property name="geometry">
     <rect>
-     <x>43</x>
-     <y>43</y>
+     <x>40</x>
+     <y>20</y>
      <width>221</width>
      <height>191</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelafterpresssubmit">
+  <widget class="QLabel" name="labelsubmitclicked">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>240</y>
-     <width>131</width>
+     <x>40</x>
+     <y>230</y>
+     <width>351</width>
      <height>20</height>
     </rect>
    </property>
