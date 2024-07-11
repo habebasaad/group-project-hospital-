@@ -1,6 +1,8 @@
 #include "registering.h"
 #include "ui_registering.h"
 #include "users.h"
+#include "mainwindow.h"
+#include "patient.h"
 
 registering::registering(QWidget *parent)
     : QDialog(parent)
@@ -10,7 +12,9 @@ registering::registering(QWidget *parent)
     ui->errorname->setVisible(false);
     ui->errorregister->setVisible(false);
     ui->repasserror->setVisible(false);
-
+    ui->groupBox_speciality->setVisible(false);
+    ui->time->setVisible(false);
+    ui->days->setVisible(false);
 }
 
 registering::~registering()
@@ -24,14 +28,21 @@ void registering::on_register_2_clicked()
     ui->errorregister->setVisible(false);
     ui->repasserror->setVisible(false);
 
-    QString username= ui->nameedit->text();
-    for (int i=0;i<usernames.size();i++)
+    QString name= ui->nameedit->text();
+    for (int i=0;i<patients.size();i++)
     {
-        if (username==usernames[i])
+        if (name==patients[i].username)
             ui->errorname->setVisible(true);
     }
+    for (int i=0;i<admins.size();i++)
+    {
+        if (name==admins[i].username)
+            ui->errorname->setVisible(true);
+    }
+
     int age=0;
-    if (ui->ageedit->text()!=""){
+    if (ui->ageedit->text()!="")
+    {
     age =ui->ageedit->text().toInt();
     }
     QString gender;
@@ -43,10 +54,12 @@ void registering::on_register_2_clicked()
     QString role;
     if (ui->patient->isChecked())
         role="patient";
-    else if(ui->admin->isChecked()||ui->doc->isChecked()||ui->nurse->isChecked())
-        role="staff";
-
-
+    else if(ui->admin->isChecked())
+        role="admin";
+    else if (ui->doc->isChecked())
+        role="doctor";
+    else if (ui->nurse->isChecked())
+        role="nurse";
 
     QString pass;
     if (ui->repass->text()!=ui->passedit->text())
@@ -54,26 +67,39 @@ void registering::on_register_2_clicked()
     else
         pass=ui->passedit->text();
 
-    if (username==""||pass==""||gender==""||age==0||role=="")
+    if (name==""||pass==""||gender==""||age==0||role=="")
         ui->errorregister->setVisible(true);
 
     if (!ui->repasserror->isVisible()&&!ui->errorregister->isVisible()&&!ui->errorname->isVisible())
     {
-        usernames.push_back(username);
-        ages.push_back(age);
-        passwords.push_back(pass);
-        roles.push_back(role);
-        hide();
-        if (role=="staff")
+        if (role=="admin")
         {
-            hide();
-            //open staff management
-
+            admins.push_back(admin(name,pass,gender,age));
         }
         else if (role=="patient")
         {
-            hide();
-            //open patient management
+            patients.push_back(patient(name,pass,age,gender));
         }
+        /////add doctor and nurse
+        hide();
+        MainWindow *win=new MainWindow(this);
+        win->show();
     }
 }
+
+void registering::on_doc_clicked()
+{
+    ui->days->setVisible(true);
+    ui->time->setVisible(true);
+    ui->groupBox_speciality->setVisible(true);
+    //////store data in object dr
+}
+
+
+void registering::on_nurse_clicked()
+{
+    ui->days->setVisible(true);
+    ui->time->setVisible(true);
+    //////store data in object nurse
+}
+

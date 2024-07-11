@@ -6,6 +6,8 @@
 #include <chat.h>
 #include <qpixmap.h>
 #include<mainwindow.h>
+#include <QTextStream>
+#include <QFile>
 
 PatientManagmentWindow::PatientManagmentWindow(QWidget *parent) :
     QDialog(parent),
@@ -60,7 +62,6 @@ void PatientManagmentWindow::on_pushButtonCancel_clicked()
     CancelAppointmentWindow* cancel= new CancelAppointmentWindow(this);
     cancel->exec();
 }
-
 
 void PatientManagmentWindow::on_pushButtonChat_clicked()
 {

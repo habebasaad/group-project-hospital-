@@ -4,6 +4,8 @@
 #include <QPixmap>
 #include "registering.h"
 #include "users.h"
+#include "adminwindow.h"
+#include "admin.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,31 +30,40 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonLogin_clicked()
 {
-    for (int i=0;i < usernames.size() ;i++)
+    for (int i=0;i < patients.size() ;i++)
     {
-        if (usernames[i]==ui->lineEditUsername->text() && passwords[i]==ui->lineEditPassword->text())
+        if (patients[i].username==ui->lineEditUsername->text() && patients[i].pass==ui->lineEditPassword->text())
         {
-            if (roles[i]=="staff")
-            {
-                hide();
-                //open staff management
 
-            }
-            else if (roles[i]=="patient")
-            {
                 // Open patient management window
                 hide(); // Hide the login window
 
                 // Create and show PatientManagmentWindow
                 PatientManagmentWindow* patientWindow = new PatientManagmentWindow(this);
                 patientWindow->setUsername(ui->lineEditUsername->text());
+                ////////////// you should sent all the object patient[i] to have access to the data for this patient not just its name
                 patientWindow->show();
 
                 return;
-            }
-            return;
+
         }
     }
+    for (int i=0;i < admins.size() ;i++)
+    {
+        if (admins[i].username==ui->lineEditUsername->text() && admins[i].pass==ui->lineEditPassword->text())
+        {
+
+            // Open patient management window
+            hide(); // Hide the login window
+
+            // Create and show PatientManagmentWindow
+            adminwindow* ad=new adminwindow(this,admins[i]);
+            ad->show();
+            return;
+
+        }
+    }
+    //for loop should be added for the doctor and the nurse also after their classes has finished
     ui->error->setVisible(true);
 }
 

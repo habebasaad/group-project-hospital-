@@ -18,6 +18,10 @@ public:
 private slots:
     void on_register_2_clicked();
 
+    void on_doc_clicked();
+
+    void on_nurse_clicked();
+
 private:
     Ui::registering *ui;
 };

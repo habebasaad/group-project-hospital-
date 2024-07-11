@@ -2,14 +2,11 @@
 #define USERS_H
 #include <QString>
 #include <QVector>
+#include "patient.h"
+#include "admin.h"
 
-extern QVector<QString> usernames ;
-extern QVector<QString> passwords;
-extern QVector<int> ages;
-extern QVector<QString> roles;
-extern QVector<QString> gender;
-
-
+extern QVector<patient> patients;
+extern QVector<admin> admins;
 class users
 {
 public:

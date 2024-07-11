@@ -2,7 +2,7 @@
 #define PATIENTMANAGMENTWINDOW_H
 
 #include <QDialog>
-
+#include <QFile>
 namespace Ui {
 class PatientManagmentWindow;
 }
@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::PatientManagmentWindow *ui;
+
 };
 
 #endif // PATIENTMANAGMENTWINDOW_H
