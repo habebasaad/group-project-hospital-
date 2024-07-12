@@ -6,4 +6,7 @@
     <qresource prefix="/Medical record file">
         <file>medical record.txt</file>
     </qresource>
+    <qresource prefix="/">
+        <file>schedule Dr.txt</file>
+    </qresource>
 </RCC>
