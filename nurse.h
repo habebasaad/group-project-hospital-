@@ -14,6 +14,8 @@ public:
     QVector<QString> days;
     int starttime;
     int endtime;
+    QVector<QString> patients;
+
 };
 
 #endif // NURSE_H

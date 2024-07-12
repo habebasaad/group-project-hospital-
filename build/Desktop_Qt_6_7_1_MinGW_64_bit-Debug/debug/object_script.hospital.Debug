@@ -3,8 +3,11 @@ debug/adminwindow.o
 debug/bookappointmentwindow.o
 debug/cancelappointmentwindow.o
 debug/chat.o
+debug/doctor.o
 debug/main.o
 debug/mainwindow.o
+debug/nurse.o
+debug/nursewindow.o
 debug/patient.o
 debug/patientmanagmentwindow.o
 debug/registering.o
@@ -15,7 +18,9 @@ debug/moc_adminwindow.o
 debug/moc_bookappointmentwindow.o
 debug/moc_cancelappointmentwindow.o
 debug/moc_chat.o
+debug/moc_doctor.o
 debug/moc_mainwindow.o
+debug/moc_nursewindow.o
 debug/moc_patientmanagmentwindow.o
 debug/moc_registering.o
 debug/moc_rescheduleappointmentwindow.o

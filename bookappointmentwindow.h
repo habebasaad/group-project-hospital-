@@ -1,6 +1,6 @@
 #ifndef BOOKAPPOINTMENTWINDOW_H
 #define BOOKAPPOINTMENTWINDOW_H
-
+#include "drclass.h"
 #include "qlistwidget.h"
 #include <QDialog>
 #include "patient.h"
@@ -15,6 +15,7 @@ class BookAppointmentWindow : public QDialog
 public:
     explicit BookAppointmentWindow(QWidget *parent = nullptr,patient p=patient());
     ~BookAppointmentWindow();
+    drclass* findDoctorByUsername(const QString& username);
 
 private slots:
     void clearSlotsList();

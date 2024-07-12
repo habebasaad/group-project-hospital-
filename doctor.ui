@@ -42,7 +42,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Hello Dr. </string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_profile_2">
@@ -55,10 +55,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Schedule</string>
+    <string>Assignment</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_profile_3">
+  <widget class="QPushButton" name="pushButton_schedule">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -68,7 +68,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Assignments</string>
+    <string>Schedule</string>
    </property>
   </widget>
  </widget>

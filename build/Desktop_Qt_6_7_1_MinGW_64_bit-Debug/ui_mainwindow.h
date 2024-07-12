@@ -73,18 +73,25 @@ public:
 
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(250, 70, 81, 71));
+        layoutWidget1->setGeometry(QRect(230, 70, 96, 71));
         verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         labelusername = new QLabel(layoutWidget1);
         labelusername->setObjectName("labelusername");
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Segoe UI")});
+        font.setPointSize(12);
+        font.setBold(true);
+        font.setItalic(false);
+        labelusername->setFont(font);
         labelusername->setStyleSheet(QString::fromUtf8("font: 700 12pt \"Segoe UI\";"));
 
         verticalLayout_2->addWidget(labelusername);
 
         labelpassword = new QLabel(layoutWidget1);
         labelpassword->setObjectName("labelpassword");
+        labelpassword->setFont(font);
         labelpassword->setStyleSheet(QString::fromUtf8("font: 700 12pt \"Segoe UI\";"));
 
         verticalLayout_2->addWidget(labelpassword);
@@ -112,7 +119,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 544, 21));
+        menubar->setGeometry(QRect(0, 0, 544, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

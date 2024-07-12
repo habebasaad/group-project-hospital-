@@ -3,8 +3,11 @@ release/adminwindow.o
 release/bookappointmentwindow.o
 release/cancelappointmentwindow.o
 release/chat.o
+release/doctor.o
 release/main.o
 release/mainwindow.o
+release/nurse.o
+release/nursewindow.o
 release/patient.o
 release/patientmanagmentwindow.o
 release/registering.o
@@ -15,7 +18,9 @@ release/moc_adminwindow.o
 release/moc_bookappointmentwindow.o
 release/moc_cancelappointmentwindow.o
 release/moc_chat.o
+release/moc_doctor.o
 release/moc_mainwindow.o
+release/moc_nursewindow.o
 release/moc_patientmanagmentwindow.o
 release/moc_registering.o
 release/moc_rescheduleappointmentwindow.o

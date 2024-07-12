@@ -72,16 +72,15 @@ public:
     QRadioButton *radioButton_Ophthalmology;
     QRadioButton *radioButton_internalmedicine;
     QRadioButton *radioButton_Dermatology;
-    QRadioButton *radioButton_Dermatology_2;
 
     void setupUi(QDialog *registering)
     {
         if (registering->objectName().isEmpty())
             registering->setObjectName("registering");
-        registering->resize(496, 605);
+        registering->resize(496, 575);
         register_2 = new QPushButton(registering);
         register_2->setObjectName("register_2");
-        register_2->setGeometry(QRect(50, 570, 80, 24));
+        register_2->setGeometry(QRect(50, 540, 80, 24));
         role = new QGroupBox(registering);
         role->setObjectName("role");
         role->setGeometry(QRect(10, 180, 131, 161));
@@ -99,7 +98,7 @@ public:
         patient->setGeometry(QRect(10, 120, 91, 22));
         errorregister = new QLabel(registering);
         errorregister->setObjectName("errorregister");
-        errorregister->setGeometry(QRect(160, 570, 151, 20));
+        errorregister->setGeometry(QRect(160, 540, 151, 20));
         horizontalLayoutWidget_3 = new QWidget(registering);
         horizontalLayoutWidget_3->setObjectName("horizontalLayoutWidget_3");
         horizontalLayoutWidget_3->setGeometry(QRect(10, 90, 481, 41));
@@ -221,7 +220,7 @@ public:
         label_9->setGeometry(QRect(10, 30, 31, 31));
         groupBox_speciality = new QGroupBox(registering);
         groupBox_speciality->setObjectName("groupBox_speciality");
-        groupBox_speciality->setGeometry(QRect(240, 370, 241, 161));
+        groupBox_speciality->setGeometry(QRect(240, 370, 241, 141));
         groupBox_speciality->setStyleSheet(QString::fromUtf8("font: 700 italic 14pt \"Segoe UI\";\n"
 "font: 12pt \"Segoe UI\";"));
         radioButton_Nutrition = new QRadioButton(groupBox_speciality);
@@ -239,9 +238,6 @@ public:
         radioButton_Dermatology = new QRadioButton(groupBox_speciality);
         radioButton_Dermatology->setObjectName("radioButton_Dermatology");
         radioButton_Dermatology->setGeometry(QRect(10, 110, 131, 21));
-        radioButton_Dermatology_2 = new QRadioButton(groupBox_speciality);
-        radioButton_Dermatology_2->setObjectName("radioButton_Dermatology_2");
-        radioButton_Dermatology_2->setGeometry(QRect(10, 130, 131, 21));
 
         retranslateUi(registering);
 
@@ -283,7 +279,6 @@ public:
         radioButton_Ophthalmology->setText(QCoreApplication::translate("registering", "Ophthalmology", nullptr));
         radioButton_internalmedicine->setText(QCoreApplication::translate("registering", "Internal Medicine", nullptr));
         radioButton_Dermatology->setText(QCoreApplication::translate("registering", "Dermatology", nullptr));
-        radioButton_Dermatology_2->setText(QCoreApplication::translate("registering", "Other", nullptr));
     } // retranslateUi
 
 };

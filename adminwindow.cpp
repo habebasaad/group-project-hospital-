@@ -5,6 +5,8 @@
 #include "patientmanagmentwindow.h"
 #include "doctor.h"
 #include "nursewindow.h"
+#include <QComboBox>
+
 
 adminwindow::adminwindow(QWidget *parent,admin ad)
     : QDialog(parent)
@@ -80,14 +82,14 @@ void adminwindow::on_submit_clicked()
 
 void adminwindow::on_doc_clicked()
 {
-    ui->nurse->setEnabled(false);
-    ui->doctorbox->setVisible(true);
+   ui->nurse->setEnabled(false);
+   ui->doctorbox->setVisible(true);
 }
 
 
 void adminwindow::on_nurse_clicked()
 {
-    ui->doc->setEnabled(false);
-    ui->nursebox->setVisible(true);
+   ui->doc->setEnabled(false);
+   ui->nursebox->setVisible(true);
 }
 

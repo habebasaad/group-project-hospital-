@@ -15,9 +15,18 @@ class nursewindow : public QDialog
 public:
     explicit nursewindow(QWidget *parent = nullptr,nurse n=nurse());
     ~nursewindow();
+    QString getAssignmentString(nurse& nuu);
+
+private slots:
+    void on_pushButton_profile_clicked();
+
+    void on_pushButton_Schedule_clicked();
+
+    void on_pushButton_Assignment_clicked();
 
 private:
     Ui::nursewindow *ui;
+    nurse nur;
 };
 
 #endif // NURSEWINDOW_H

@@ -36,15 +36,15 @@ public:
     {
         if (PatientManagmentWindow->objectName().isEmpty())
             PatientManagmentWindow->setObjectName("PatientManagmentWindow");
-        PatientManagmentWindow->resize(448, 332);
+        PatientManagmentWindow->resize(503, 332);
         labelHello = new QLabel(PatientManagmentWindow);
         labelHello->setObjectName("labelHello");
-        labelHello->setGeometry(QRect(30, 20, 51, 20));
+        labelHello->setGeometry(QRect(30, 20, 191, 20));
         labelHello->setStyleSheet(QString::fromUtf8("font: 700 italic 9pt \"Arial\";\n"
 "font: 16pt \"Segoe UI\";"));
         labelUsername = new QLabel(PatientManagmentWindow);
         labelUsername->setObjectName("labelUsername");
-        labelUsername->setGeometry(QRect(100, 10, 91, 21));
+        labelUsername->setGeometry(QRect(300, 20, 91, 21));
         pushButtonBook = new QPushButton(PatientManagmentWindow);
         pushButtonBook->setObjectName("pushButtonBook");
         pushButtonBook->setGeometry(QRect(80, 60, 271, 41));
@@ -62,10 +62,10 @@ public:
         pushButtonChat->setGeometry(QRect(20, 120, 181, 31));
         comboBoxReschedule = new QComboBox(PatientManagmentWindow);
         comboBoxReschedule->setObjectName("comboBoxReschedule");
-        comboBoxReschedule->setGeometry(QRect(220, 210, 151, 31));
+        comboBoxReschedule->setGeometry(QRect(260, 210, 221, 31));
         comboBoxCancel = new QComboBox(PatientManagmentWindow);
         comboBoxCancel->setObjectName("comboBoxCancel");
-        comboBoxCancel->setGeometry(QRect(40, 210, 151, 31));
+        comboBoxCancel->setGeometry(QRect(10, 210, 231, 31));
         pushButtonSubmit = new QPushButton(PatientManagmentWindow);
         pushButtonSubmit->setObjectName("pushButtonSubmit");
         pushButtonSubmit->setGeometry(QRect(170, 280, 91, 31));

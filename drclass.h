@@ -17,6 +17,7 @@ public:
     int age;
     QVector<QString> patientschedule;
     QVector<QString> days;
+    QVector<QString> patients;
     int starttime;
     int endtime;
 };

@@ -6,6 +6,8 @@
 #include <patientmanagmentwindow.h>//>
 #include "users.h"
 #include "patient.h"
+#include "drclass.h"
+#include "doctor.h"
 
 
 BookAppointmentWindow::BookAppointmentWindow(QWidget *parent,patient p)
@@ -174,5 +176,72 @@ void BookAppointmentWindow::on_pushButtonSubmit_clicked()     ///not handeled ye
     }
 
 //we still need to push_back(currpat.name) to the selected dr vector for the patientschedule only (the only remaining part in the patient part)
-
+    if (selectedSpecialty == "Nutrition") {
+        for (int i = 0; i < Nutrition.size(); i++) {
+            if (selectedSlot.contains(Nutrition[i].username)) {
+                Nutrition[i].patients.push_back(currpat.name);
+                break;
+            }
+        }
+    } else if (selectedSpecialty == "OG") {
+        for (int i = 0; i < OG.size(); i++) {
+            if (selectedSlot.contains(OG[i].username)) {
+                OG[i].patients.push_back(currpat.name);
+                break;
+            }
+        }
+    } else if (selectedSpecialty == "Ophthalmology") {
+        for (int i = 0; i < oph.size(); i++) {
+            if (selectedSlot.contains(oph[i].username)) {
+                oph[i].patients.push_back(currpat.name);
+                break;
+            }
+        }
+    } else if (selectedSpecialty == "Internal Medicine") {
+        for (int i = 0; i < IM.size(); i++) {
+            if (selectedSlot.contains(IM[i].username)) {
+                IM[i].patients.push_back(currpat.name);
+                break;
+            }
+        }
+    } else if (selectedSpecialty == "Dermatology") {
+        for (int i = 0; i < Derm.size(); i++) {
+            if (selectedSlot.contains(Derm[i].username)) {
+                Derm[i].patients.push_back(currpat.name);
+                break;
+            }
+        }
+    }
+    // Display the schedule in the doctor's window
+    doctor doctorWindow(this, *findDoctorByUsername(selectedSlot));
+    doctorWindow.exec();
+}
+drclass* BookAppointmentWindow::findDoctorByUsername(const QString& username)
+{
+    for (auto& doc : Nutrition) {
+        if (doc.username == username) {
+            return &doc;
+        }
+    }
+    for (auto& doc : OG) {
+        if (doc.username == username) {
+            return &doc;
+        }
+    }
+    for (auto& doc : oph) {
+        if (doc.username == username) {
+            return &doc;
+        }
+    }
+    for (auto& doc : IM) {
+        if (doc.username == username) {
+            return &doc;
+        }
+    }
+    for (auto& doc : Derm) {
+        if (doc.username == username) {
+            return &doc;
+        }
+    }
+    return nullptr;
 }

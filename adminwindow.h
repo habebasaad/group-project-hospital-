@@ -1,6 +1,7 @@
 #ifndef ADMINWINDOW_H
 #define ADMINWINDOW_H
-
+// #include "doctor.h"
+// #include "nurse.h"
 #include <QDialog>
 #include "admin.h"
 
@@ -29,6 +30,8 @@ private slots:
 
 private:
     Ui::adminwindow *ui;
+    // QVector<doctor> doctors;
+    // QVector<nurse> nurses;
 };
 
 #endif // ADMINWINDOW_H
