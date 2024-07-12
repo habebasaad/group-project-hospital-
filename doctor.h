@@ -1,6 +1,6 @@
 #ifndef DOCTOR_H
 #define DOCTOR_H
-
+#include "drclass.h"
 #include <QDialog>
 
 namespace Ui {
@@ -12,7 +12,7 @@ class doctor : public QDialog
     Q_OBJECT
 
 public:
-    explicit doctor(QWidget *parent = nullptr);
+    explicit doctor(QWidget *parent = nullptr, drclass d = drclass("","","","",0));
     ~doctor();
 
 private slots:

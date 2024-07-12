@@ -4,7 +4,7 @@
 #include "users.h"
 #include "patientmanagmentwindow.h"
 
-adminwindow::adminwindow(QWidget *parent,admin ad)
+adminwindow::adminwindow(QWidget *parent,admin ad, drclass d)
     : QDialog(parent)
     , ui(new Ui::adminwindow)
 {

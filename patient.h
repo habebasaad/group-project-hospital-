@@ -3,7 +3,6 @@
 #include <QString>
 #include <QFile>
 #include <QMap>
-
 class patient
 {
 public:
