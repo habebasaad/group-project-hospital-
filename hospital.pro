@@ -18,6 +18,8 @@ SOURCES += \
     drclass.cpp \
     main.cpp \
     mainwindow.cpp \
+    nurse.cpp \
+    nursewindow.cpp \
     patient.cpp \
     patientmanagmentwindow.cpp \
     registering.cpp \
@@ -33,6 +35,8 @@ HEADERS += \
     doctor.h \
     drclass.h \
     mainwindow.h \
+    nurse.h \
+    nursewindow.h \
     patient.h \
     patientmanagmentwindow.h \
     registering.h \
@@ -46,6 +50,7 @@ FORMS += \
     chat.ui \
     doctor.ui \
     mainwindow.ui \
+    nursewindow.ui \
     patientmanagmentwindow.ui \
     registering.ui \
     rescheduleappointmentwindow.ui

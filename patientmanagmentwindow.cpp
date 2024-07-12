@@ -13,19 +13,20 @@
 
 
 
-PatientManagmentWindow::PatientManagmentWindow(QWidget *parent) :
+PatientManagmentWindow::PatientManagmentWindow(QWidget *parent,patient p) :
     QDialog(parent),
     ui(new Ui::PatientManagmentWindow),
-    currentPatient("default", "password", 0, "gender"),
+    currentPatient(p),
     submit(false) // Initialize submit as false
 {
     ui->setupUi(this);
-    ui->labelUsername->setText(ui->labelUsername->text());
+    //ui->labelUsername->setText(ui->labelUsername->text());
     QPixmap pix(":/Images/Imagepatientwindow");
     ui->comboBoxCancel->setVisible(false);
     ui->comboBoxReschedule->setVisible(false);
     //int w = ui->labelImage->width();
     ui->pushButtonSubmit->setVisible(false);
+    ui->labelHello->setText("Hello "+currentPatient.name);
     //int h = ui->labelImage->height();
     //ui->labelImage->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
    // ui->labelImage->setVisible(true);
@@ -35,10 +36,10 @@ PatientManagmentWindow::~PatientManagmentWindow()
 {
     delete ui;
 }
-void PatientManagmentWindow::setPatient(const patient &patient)
-{
-    currentPatient = patient;
-}
+// void PatientManagmentWindow::setPatient(const patient &patient)
+// {
+//     currentPatient = patient;
+// }
 void PatientManagmentWindow::setUsername(const QString &username)
 {
     QFont font1;
@@ -121,7 +122,8 @@ if (!filePath.isEmpty()) {
         if (found) {
             QMessageBox::information(this, tr("Medical Record"), medicalRecord);
         } else {
-            QMessageBox::information(this, tr("Error"), tr("Username not found in the file."));
+            medicalRecord="Name: "+ currentPatient.name+"\nAge "+ QString::number(currentPatient.age)+"\nGender: "+currentPatient.gender+"\nNo Medical Record\n";
+            QMessageBox::information(this, tr("Error"), medicalRecord);
         }
     } else {
         QMessageBox::critical(this, tr("Error"), tr("Failed to open the file."));

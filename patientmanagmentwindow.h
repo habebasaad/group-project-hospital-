@@ -15,10 +15,10 @@ class PatientManagmentWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit PatientManagmentWindow(QWidget *parent = nullptr);
+    explicit PatientManagmentWindow(QWidget *parent = nullptr,patient p=patient());
     ~PatientManagmentWindow();
      void setUsername(const QString &username);
-     void setPatient(const patient &patient);
+     //void setPatient(const patient &patient);
      QMap<QString, QString> appointments;
      void addToAppointments(const QString &slot);
      void updateComboBoxes();

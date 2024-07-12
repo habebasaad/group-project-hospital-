@@ -3,7 +3,7 @@
 
 #include "qlistwidget.h"
 #include <QDialog>
-
+#include "patient.h"
 namespace Ui {
 class BookAppointmentWindow;
 }
@@ -13,7 +13,7 @@ class BookAppointmentWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit BookAppointmentWindow(QWidget *parent = nullptr);
+    explicit BookAppointmentWindow(QWidget *parent = nullptr,patient p=patient());
     ~BookAppointmentWindow();
 
 private slots:
@@ -33,11 +33,12 @@ private slots:
 
     //void on_pushButtonSubmit_clicked(bool checked);
 
-   // void on_pushButtonSubmit_clicked();
+   void on_pushButtonSubmit_clicked();
 
 
 private:
     Ui::BookAppointmentWindow *ui;
+    patient currpat;
     //bool submitClicked = false; // Add this flag
 };
 

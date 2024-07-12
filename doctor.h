@@ -12,7 +12,7 @@ class doctor : public QDialog
     Q_OBJECT
 
 public:
-    explicit doctor(QWidget *parent = nullptr, drclass d = drclass("","","","",0));
+    explicit doctor(QWidget *parent = nullptr, drclass dr = drclass());
     ~doctor();
 
 private slots:
@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::doctor *ui;
+    drclass currdoc;
 };
 
 #endif // DOCTOR_H

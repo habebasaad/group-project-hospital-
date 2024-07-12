@@ -6,6 +6,8 @@
 #include "users.h"
 #include "adminwindow.h"
 #include "admin.h"
+#include "doctor.h"
+#include "nursewindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +22,23 @@ MainWindow::MainWindow(QWidget *parent)
     ui->labelimagelogin->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
     ui->labelimagelogin->setVisible(true);
     ui->error->setVisible(false);
+
+    //Nutrition,OG,IM,Ophthalmology,Dermatology
+
+    for (int i=0;i<doctors.size();i++)
+    {
+        if (doctors[i].specialization=="Nutrition")
+            Nutrition.push_back(doctors[i]);
+        else if (doctors[i].specialization=="OG")
+            OG.push_back(doctors[i]);
+        else if (doctors[i].specialization=="IM")
+            IM.push_back(doctors[i]);
+        else if (doctors[i].specialization=="Dermatology")
+            Derm.push_back(doctors[i]);
+        else if (doctors[i].specialization=="Ophthalmology")
+            oph.push_back(doctors[i]);
+
+    }
 }
 
 MainWindow::~MainWindow()
@@ -52,8 +71,7 @@ void MainWindow::on_pushButtonLogin_clicked()
         if (patients[i].name == ui->lineEditUsername->text() && patients[i].pass == ui->lineEditPassword->text()) {
 
             hide();
-            PatientManagmentWindow* patientWindow = new PatientManagmentWindow(this);
-            patientWindow->setPatient(patients[i]);
+            PatientManagmentWindow* patientWindow = new PatientManagmentWindow(this,patients[i]);
             patientWindow->show();
 
             return;
@@ -66,6 +84,28 @@ void MainWindow::on_pushButtonLogin_clicked()
         {
             hide();
             adminwindow* ad=new adminwindow(this,admins[i]);
+            ad->show();
+            return;
+
+        }
+    }
+    for (int i=0;i < doctors.size() ;i++)
+    {
+        if (doctors[i].username==ui->lineEditUsername->text() && doctors[i].pass==ui->lineEditPassword->text())
+        {
+            hide();
+            doctor* ad=new doctor(this,doctors[i]);
+            ad->show();
+            return;
+
+        }
+    }
+    for (int i=0;i < nurses.size() ;i++)
+    {
+        if (nurses[i].username==ui->lineEditUsername->text() && nurses[i].pass==ui->lineEditPassword->text())
+        {
+            hide();
+            nursewindow* ad=new nursewindow(this,nurses[i]);
             ad->show();
             return;
 

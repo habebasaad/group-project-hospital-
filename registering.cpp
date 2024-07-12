@@ -67,11 +67,70 @@ void registering::on_register_2_clicked()
     else
         pass=ui->passedit->text();
 
+    int st=0;
+    if (ui->fromedit->text()!=""){
+        st=ui->fromedit->text().toInt();
+    }
+    int e=0;
+    if (ui->toedit->text()!=""){
+        e=ui->toedit->text().toInt();
+    }
+
+    QVector<QString> dd;
+    if (ui->checkBox->isChecked())
+        dd.push_back(ui->checkBox->text());
+    if (ui->checkBox_2->isChecked())
+        dd.push_back(ui->checkBox_2->text());
+    if (ui->checkBox_3->isChecked())
+        dd.push_back(ui->checkBox_3->text());
+    if (ui->checkBox_4->isChecked())
+        dd.push_back(ui->checkBox_4->text());
+    if (ui->checkBox_6->isChecked())
+        dd.push_back(ui->checkBox_6->text());
+    if (ui->checkBox_7->isChecked())
+        dd.push_back(ui->checkBox_7->text());
+
+    ///Nutrition,OG,IM,Ophthalmology,Dermatology
+
+    QString spec="";
+    if (ui->radioButton_Nutrition->isChecked())
+        spec="Nutrition";
+    else if (ui->radioButton_Dermatology->isChecked())
+        spec="Dermatology";
+    else if (ui->radioButton_OG->isChecked())
+        spec="OG";
+    else if (ui->radioButton_Ophthalmology->isChecked())
+        spec="Ophthalmology";
+    else if (ui->radioButton_internalmedicine->isChecked())
+        spec="IM";
+
+    bool drcheck=false;
+    if (spec!=""&&st!=0&&e!=0&&!dd.empty())
+        drcheck=true;
+    bool nursecheck=false;
+    if (st!=0&&e!=0&&!dd.empty())
+        nursecheck=true;
+
     if (name==""||pass==""||gender==""||age==0||role=="")
+    {
+
+        if (ui->time->isVisible())
+            if (st==0 || e==0)
+                ui->errorregister->setVisible(true);
+        if (ui->days->isVisible()==true)
+            if (dd.empty())
+                ui->errorregister->setVisible(true);
+        if (ui->groupBox_speciality->isVisible()==true)
+            if (spec=="")
+                ui->errorregister->setVisible(true);
+
         ui->errorregister->setVisible(true);
+    }
+
 
     if (!ui->repasserror->isVisible()&&!ui->errorregister->isVisible()&&!ui->errorname->isVisible())
     {
+
         if (role=="admin")
         {
             admins.push_back(admin(name,pass,gender,age));
@@ -80,10 +139,26 @@ void registering::on_register_2_clicked()
         {
             patients.push_back(patient(name,pass,age,gender));
         }
-        /////add doctor and nurse
+        else if (role=="doctor")
+        {
+            if (drcheck==false){
+                ui->errorregister->setVisible(true);
+                return;
+            }
+            doctors.push_back(drclass(name,pass,spec,gender,age,st,e,dd));
+        }
+        else if (role=="nurse")
+        {
+            if (nursecheck==false){
+                ui->errorregister->setVisible(true);
+                return;
+            }
+            nurses.push_back(nurse(name,pass,gender,age,st,e,dd));
+        }
         hide();
         MainWindow *win=new MainWindow(this);
         win->show();
+
     }
 }
 
@@ -92,7 +167,7 @@ void registering::on_doc_clicked()
     ui->days->setVisible(true);
     ui->time->setVisible(true);
     ui->groupBox_speciality->setVisible(true);
-    //////store data in object dr
+
 }
 
 
@@ -100,6 +175,6 @@ void registering::on_nurse_clicked()
 {
     ui->days->setVisible(true);
     ui->time->setVisible(true);
-    //////store data in object nurse
+
 }
 

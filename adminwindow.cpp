@@ -3,18 +3,27 @@
 #include "admin.h"
 #include "users.h"
 #include "patientmanagmentwindow.h"
+#include "doctor.h"
+#include "nursewindow.h"
 
-adminwindow::adminwindow(QWidget *parent,admin ad, drclass d)
+adminwindow::adminwindow(QWidget *parent,admin ad)
     : QDialog(parent)
     , ui(new Ui::adminwindow)
 {
     ui->setupUi(this);
     ui->hello->setText("Hello "+ ad.username);
     ui->patbox->setVisible(false);
-    ui->staffbox->setVisible(false);
+    ui->nursebox->setVisible(false);
+    ui->doctorbox->setVisible(false);
+    ui->doc->setVisible(false);
+    ui->nurse->setVisible(false);
+
     for (int i=0;i<patients.size();i++)
         ui->patbox->addItem(patients[i].name);
-    /////add items for staff for docors and nurses
+    for (int i=0;i<doctors.size();i++)
+        ui->doctorbox->addItem(doctors[i].username);
+    for (int i=0;i<nurses.size();i++)
+        ui->nursebox->addItem(nurses[i].username);
 }
 
 adminwindow::~adminwindow()
@@ -31,25 +40,54 @@ void adminwindow::on_pat_clicked()
 
 void adminwindow::on_staff_clicked()
 {
-    ui->staffbox->setVisible(true);
+    ui->nurse->setVisible(true);
+    ui->doc->setVisible(true);
     ui->pat->setEnabled(false);
 }
 
 
 void adminwindow::on_submit_clicked()
 {
-    if (ui->staffbox->isVisible()){
-        //check doctor , nurses vectors to know which one to handle
+    if (ui->nursebox->isVisible()){
+        for (int i=0;i<nurses.size();i++)
+            if (nurses[i].username==ui->nursebox->currentText())
+            {
+                hide();
+                nursewindow* win=new nursewindow(this,nurses[i]);
+                win->show();
+            }
+    }
+    if (ui->doctorbox->isVisible()){
+        for (int i=0;i<doctors.size();i++)
+            if (doctors[i].username==ui->doctorbox->currentText())
+            {
+                hide();
+                doctor* win=new doctor(this,doctors[i]);
+                win->show();
+            }
     }
     if (ui->patbox->isVisible()){
         for (int i=0;i<patients.size();i++)
             if (patients[i].name==ui->patbox->currentText())
             {
                 hide();
-                PatientManagmentWindow* win=new PatientManagmentWindow(this);
-                /////should pass the whole object
+                PatientManagmentWindow* win=new PatientManagmentWindow(this,patients[i]);
                 win->show();
             }
     }
+}
+
+
+void adminwindow::on_doc_clicked()
+{
+    ui->nurse->setEnabled(false);
+    ui->doctorbox->setVisible(true);
+}
+
+
+void adminwindow::on_nurse_clicked()
+{
+    ui->doc->setEnabled(false);
+    ui->nursebox->setVisible(true);
 }
 

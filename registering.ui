@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>496</width>
-    <height>605</height>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>570</y>
+     <y>540</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -95,7 +95,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>570</y>
+     <y>540</y>
      <width>151</width>
      <height>20</height>
     </rect>
@@ -401,7 +401,7 @@
      <x>240</x>
      <y>370</y>
      <width>241</width>
-     <height>161</height>
+     <height>141</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -474,19 +474,6 @@ font: 12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Dermatology</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_Dermatology_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>130</y>
-      <width>131</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Other</string>
     </property>
    </widget>
   </widget>
